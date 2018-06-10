@@ -1,0 +1,62 @@
+﻿@model WebAppMVC.Models.Organizations.ProductPriceModel
+@{ 
+    int countLog = 0;
+}
+<div id="addNewForm">
+    @using (Ajax.BeginForm("UpdatePrice", "Product",
+                            new AjaxOptions
+                            {
+                                HttpMethod = "POST",
+                                UpdateTargetId = "addNewForm",
+                                OnSuccess = "itemProduct.CreatedSuccess",
+                            }, new { @id = "formAdd" }))
+    {
+        <form role="form">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <div class="form-add-left">
+                    <label>Hạn giá *: </label>
+                </div>
+                <div class="form-add-right">
+                    @Html.TextBoxFor(x => x.ProductPrice.Date, "{0:s}", new { @class = "form-control", type = "datetime-local" })
+                    @Html.ValidationMessageFor(x => x.ProductPrice.Date)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-add-left">
+                    <label>Giá bán *: </label>
+                </div>
+                <div class="form-add-right">
+                    @Html.TextBoxFor(x => x.ProductPrice.Amount, new { @class = "form-control", @type = "number" })
+                    @Html.ValidationMessageFor(x => x.ProductPrice.Amount)
+                </div>
+            </div>
+
+            @Html.HiddenFor(x => x.ProductPrice.ProductCategoryId)
+            @Html.HiddenFor(x => x.ProductPrice.ProductId)
+            @Html.HiddenFor(x => x.ProductPrice.PriceId)
+        </form>
+    }
+
+    <div>
+        <label>Lịch sử biến động giá:</label>
+    </div>
+
+    @if (Model != null && Model.ListProductPrice != null && Model.ListProductPrice.Data != null && Model.ListProductPrice.Data.Any())
+    {
+        foreach (var item in Model.ListProductPrice.Data)
+        {
+            <div>
+                <span>@(++countLog). Giá: @Framework.Common.Facache.Helpers.FormatNumber(item.Amount, 0) (VNĐ)</span>
+                <span> => Hết hạn lúc @item.Date.Value.ToString("HH:mm dd/MM/yyyy")</span>
+            </div>
+        }
+    }
+
+</div>
+
+<script type="text/javascript">
+    reinitForm("#formAdd");
+</script>

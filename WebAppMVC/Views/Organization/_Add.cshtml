@@ -1,0 +1,64 @@
+﻿@model Framework.Entities.Organization.Organization
+@{
+    ViewBag.Title = "Tạo tổ chức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tạo tổ chức kinh doanh</h2>
+
+@using (Html.BeginForm("Add", "Organization", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Tên tổ chức *: </label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Link logo *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.UrlLogo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.UrlLogo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Số điện thoại *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Phone)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Địa chỉ *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Address)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Hoàn thành" class="btn btn-default" />
+    </div>
+
+    <div class="form-group">
+        @Html.ValidationSummary(true)
+    </div>
+
+    @Html.HiddenFor(x => x.OrganizationId)
+    @Html.HiddenFor(x => x.AccountId)
+}
+

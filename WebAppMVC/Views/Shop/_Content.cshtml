@@ -1,0 +1,56 @@
+﻿@using Framework.Common
+@using Framework.Security
+@model Framework.Common.DataPaging.GridModel<Framework.Entities.Organization.Product>
+@{
+    bool isDataContent = Model != null && Model.Data != null && Model.Data.Any();
+}
+
+@if (isDataContent)
+{
+    <div class="row rowshop">
+        @foreach (var item in Model.Data)
+        {
+            bool isBuy = SystemSession.ShopCart != null ? SystemSession.ShopCart.Exists(x => x.ProductId == item.ProductId) : false;
+            <div class="col-md-4 boxshop">
+                <h4>@item.Name</h4>
+                <div class="imageshop" style="max-height: 315px;">
+                    <img src="@item.UrlPicture" alt="Ảnh sản phẩm" style="max-height: 315px;"/>
+                </div>
+                <p>
+                    <b>Giá:</b> @Framework.Common.Facache.Helpers.FormatNumber(item.Price, 0) (VNĐ) <br />
+                    <b>Hạn giá:</b> @item.Date.Value.ToString("dd/MM/yyyy") <br />
+                    <b>Đơn vị:</b> @item.OrganizationName <br/>
+                    <b>Thông tin:</b> @item.Description
+                </p>
+                <p>
+                    @if (!isBuy)
+                    {
+                        <a class="btn btn-default shopadd" href="#" data-organizationid="@item.OrganizationId" data-productId="@item.ProductId" data-name="@item.Name" data-price="@item.Price">Mua ngay &raquo;</a>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-ok"></span> Đã mua
+                        </button>
+                    }
+                </p>
+            </div>
+
+        }
+    </div>
+}
+else
+{
+    <div class="row rowshop">
+        <h4>Không có sản phẩm!</h4>
+    </div>
+}
+
+@if (isDataContent)
+{
+    @Html.Raw(Model.GeneralPaging("pageSelected", "btnPaging"))
+}
+
+<script type="text/javascript">
+    itemShop.InitializeContent();
+</script>

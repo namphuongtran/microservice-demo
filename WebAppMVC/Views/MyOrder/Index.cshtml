@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Đơn hàng đã bán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="title">Tổ chức/Đơn hàng đã bán</h2>
+
+<div id="ResultContent">
+</div>
+
+@section Scripts
+{
+    <script src="~/Scripts/Organization/MyOrder.js"></script>
+    <script type="text/javascript">
+        var params = {
+            addForm: '#formAdd',
+            btnPaging: '.btnPaging',
+
+            urlLoadContent: '@Url.Action("LoadContent", "MyOrder")',
+        }
+
+        var itemMyOrder = new pageJS.ItemMyOrder();
+        itemMyOrder.Initialize(params);
+    </script>
+}
+

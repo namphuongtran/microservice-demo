@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Reponsitory\Organization\**" />
+    <Content Remove="Reponsitory\Organization\**" />
+    <EmbeddedResource Remove="Reponsitory\Organization\**" />
+    <None Remove="Reponsitory\Organization\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="zCmd.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\Personals\" />
+    <Folder Include="Reponsitory\Personals\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Consul" Version="0.7.2.3" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.0.0-rc1" />
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.0.0-rc1" />
+    <PackageReference Include="JWT" Version="3.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Reponsitory\Organizations\MSV_OrganizationService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CommonConsul\ServiceRegistry.Consul.csproj" />
+    <ProjectReference Include="..\DAL\Core.SQL.csproj" />
+  </ItemGroup>
+
+</Project>

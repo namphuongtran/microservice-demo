@@ -1,0 +1,73 @@
+﻿@model List<Framework.Entities.Personals.Cart>
+@{
+    int countItem = 0;
+}
+<div id="addNewForm">
+    @using (Ajax.BeginForm("ShopCart", "Product",
+    new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "addNewForm",
+        OnSuccess = "itemShop.CreatedSuccess",
+    }, new { @id = "formAdd" }))
+    {
+        <form role="form">
+            @Html.AntiForgeryToken()
+
+            <div class="container">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Stt</th>
+                            <th>Sản phẩm</th>
+                            <th class="text-right">Số lượng</th>
+                            <th class="text-right">Giá (VNĐ)</th>
+                            <th class="text-right">Thành tiền (VNĐ)</th>
+                            <th class="text-center">Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">@(++countItem)</td>
+                                    <td>@item.Name</td>
+                                    <td class="text-right">
+                                        <input type="number" value="@Framework.Common.Facache.Helpers.FormatNumber(item.Quantity, 0)" class="form-control txtQuantity" min="1" style="width: 60px; display: inline-block;" data-productid="@item.ProductId" />
+                                    </td>
+                                    <td class="text-right">@Framework.Common.Facache.Helpers.FormatNumber(item.Price,0)</td>
+                                    <td class="text-right">@Framework.Common.Facache.Helpers.FormatNumber((item.Quantity*item.Price),0)</td>
+                                    <td class="text-center">
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-remove-circle btnRemove" data-productid="@item.ProductId" style="font-size: 20px;"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                            <tr>
+                                <td></td>
+                                <td colspan="3"><b>Tổng cộng: </b></td>
+                                <td class="text-right"><b>@Framework.Common.Facache.Helpers.FormatNumber(Model.Sum(x => x.Quantity*x.Price),0)</b></td>
+                                <td></td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="6" class="text-center" id="nodata">Chưa mua sản phẩm nào!</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </form>
+    }
+
+</div>
+
+<script type="text/javascript">
+    reinitForm("#formAdd");
+    itemShop.InitializeCart();
+</script>

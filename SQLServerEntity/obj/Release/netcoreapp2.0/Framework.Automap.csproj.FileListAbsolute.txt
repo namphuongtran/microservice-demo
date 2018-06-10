@@ -1,0 +1,10 @@
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Release\netcoreapp2.0\Framework.Automap.deps.json
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Release\netcoreapp2.0\Framework.Automap.dll
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Release\netcoreapp2.0\Framework.Automap.pdb
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Release\netcoreapp2.0\System.Data.SqlClient.dll
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Release\netcoreapp2.0\System.Data.SqlClient.xml
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Release\netcoreapp2.0\Framework.Automap.csproj.CoreCompileInputs.cache
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Release\netcoreapp2.0\Framework.Automap.AssemblyInfoInputs.cache
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Release\netcoreapp2.0\Framework.Automap.AssemblyInfo.cs
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Release\netcoreapp2.0\Framework.Automap.dll
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Release\netcoreapp2.0\Framework.Automap.pdb

@@ -1,0 +1,78 @@
+﻿@using Framework.Security
+@{
+    string email = SystemSession.CurrentAccount != null ? SystemSession.CurrentAccount.Email : string.Empty;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My Shop - Demo Microservice</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("NashTech Software", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Gian hàng", "Index", "Shop")</li>
+                    <li>@Html.ActionLink("Tổ chức", "Index", "Organization")</li>
+                    <li>@Html.ActionLink("|", "", "")</li>
+                    @if (email == string.Empty)
+                    {
+                        <li>@Html.ActionLink("Đăng nhập", "Index", "Login")</li>
+                        <li>@Html.ActionLink("Đăng Ký", "Register", "Login")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Chào " + email + ", ", "EditAccount", "Login")</li>
+                        <li style="text-decoration: underline;">@Html.ActionLink("Đăng xuất", "LogOut", "Login")</li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Hoang Do</p>
+        </footer>
+
+        <div class="modal fade" id="dialogPopup" role="dialog">
+            <div class="nomodal"></div>
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="bg-load" class="bg-load hide text-center">
+            <p style="font-weight: bold; color: red;">
+                <i class="fa fa-refresh fa-spin" style="font-size:24px"></i>
+                Loading...
+            </p>
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/commonJS")
+    @Scripts.Render("~/bundles/ajax")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

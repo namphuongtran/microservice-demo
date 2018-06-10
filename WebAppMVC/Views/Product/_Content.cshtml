@@ -1,0 +1,68 @@
+﻿@using Framework.Common.DataPaging
+@using Framework.Entities.Organization
+@model Framework.Common.DataPaging.GridModel<Framework.Entities.Organization.Product>
+@{ 
+    int countStt = Model.CurrentPage * Model.SizePage;
+    bool isDataContent = Model != null && Model.Data != null && Model.Data.Any();
+}
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Stt</th>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Mô tả</th>
+                <th class="text-right">[Giá (VNĐ)</th>
+                <th class="text-center">Cập nhật giá]</th>
+                <th class="text-center">Sửa sản phẩm</th>
+                <th class="text-center">Xóa sản phẩm</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (isDataContent)
+            {
+                foreach (var item in Model.Data)
+                {
+                    <tr>
+                        <td class="text-center">@(++countStt)</td>
+                        <td>@item.Code</td>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                        <td class="text-right">@Framework.Common.Facache.Helpers.FormatNumber(item.Price,0)</td>
+                        <td class="text-center">
+                            <a href="#" class="btnUpdatePrice" data-value="@item.ProductId">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="#" class="btnEdit" data-value="@item.ProductId">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="#" class="btnDelete" data-value="@item.ProductId">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8" class="text-center" id="nodata">Không có dữ liệu!</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (isDataContent)
+    {
+        @Html.Raw(Model.GeneralPaging("pageSelected", "btnPaging"))
+    }
+</div>
+
+<script type="text/javascript">
+    itemProduct.InitializeContent();
+</script>

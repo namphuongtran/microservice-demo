@@ -1,0 +1,61 @@
+﻿@using Framework.Common.DataPaging
+@model Framework.Common.DataPaging.GridModel<Framework.Entities.Organization.Product>
+@{
+    int countStt = Model.CurrentPage * Model.SizePage;
+    bool isDataContent = Model != null && Model.Data != null && Model.Data.Any();
+}
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Stt</th>
+                <th class="text-left">Người mua</th>
+                <th class="text-left">Mã sản phẩm</th>
+                <th class="text-left">Tên sản phẩm</th>
+                <th class="text-center">Thời điểm mua</th>
+                <th class="text-right">Số lượng</th>
+                <th class="text-right">Giá (VNĐ)</th>
+                <th class="text-right">Thành tiền (VNĐ)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (isDataContent)
+            {
+                foreach (var item in Model.Data)
+                {
+                    <tr>
+                        <td class="text-center">@(++countStt)</td>
+                        <td class="text-left">
+                            <a href="#" data-toggle="popover" title="Thông tin cá nhân" data-content="Số điện thoại: @item.Phone">@item.AccountName</a>
+                        </td>
+                        <td class="text-left">@item.Code</td>
+                        <td class="text-left">@item.Name</td>
+                        <td class="text-center">@(item.CreatedAtDate != null ? item.CreatedAtDate.Value.ToString("HH:mm dd/MM/yyyy") : "Không xác định")</td>
+                        <td class="text-right">@Framework.Common.Facache.Helpers.FormatNumber(item.Quantity, 0)</td>
+                        <td class="text-right">@Framework.Common.Facache.Helpers.FormatNumber(item.Price, 0)</td>
+                        <td class="text-right">@Framework.Common.Facache.Helpers.FormatNumber(item.Price*item.Quantity, 0)</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="8" class="text-center" id="nodata">Không có dữ liệu!</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (isDataContent)
+    {
+        @Html.Raw(Model.GeneralPaging("pageSelected", "btnPaging"))
+    }
+</div>
+
+<script type="text/javascript">
+    itemMyOrder.InitializeContent();
+    $(document).ready(function () {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>

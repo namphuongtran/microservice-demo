@@ -1,0 +1,156 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.form-control-left {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.validation-summary-errors {
+    color: red;
+}
+
+    .validation-summary-errors ul {
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .validation-summary-errors li {
+        list-style-type: none;
+    }
+
+input {
+    border-radius: 4px;
+    border: 1px solid #808080;
+}
+
+.title {
+    text-transform: uppercase;
+    color:chocolate;
+}
+
+.row {
+    margin-left: 16px;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    margin-right: 16px;
+}
+.row select{
+    min-width: 150px;
+    min-height: 30px;
+    border-radius: 4px;
+}
+.row input {
+    min-width: 40px;
+    min-height: 30px;
+    border-radius: 4px;
+    background: #ffffff;
+}
+.row input:hover {
+    background: #00ffff;
+}
+.row .row-left{
+    float: left;
+}
+.row .row-right {
+    float: right;
+}
+
+.rowshop {
+    /*background: #00ffff;*/
+    text-align:center;
+}
+
+.boxshop {
+    width: 31%;
+    height: 520px;
+    margin: 1% 1% 1% 1%;
+    border: solid 1px #00ffff;
+    border-radius: 6px;
+}
+.boxshop p{
+    text-align: left;
+    margin-top: 10px;
+}
+.boxshop:hover {
+    border: solid 1px chocolate;
+}
+
+.imageshop {
+    width: 100%;
+}
+.imageshop img {
+    width: 100%;
+}
+
+.glyphicon{
+    color: black;
+}
+
+.form-add-left{
+    float: left;
+    width: 35%;
+    text-align: right;
+    padding-top: 7px;
+    padding-right: 10px;
+}
+
+.form-add-right {
+    float: left;
+    width: 65%;
+}
+
+.pageSelected {
+    background: #eeeeee !important;
+}
+
+#bg-load {
+    background: #000;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+}
+#bg-load p {
+    margin-top: 20%; /* calc(50% - 350px);*/
+    color: yellow !important;
+}
+
+#nodata {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.actived {
+    color: white;
+}

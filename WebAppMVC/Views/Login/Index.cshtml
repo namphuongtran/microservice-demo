@@ -1,0 +1,46 @@
+﻿@model Framework.Entities.Systems.Account
+
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string values = ViewBag.Values;
+}
+
+<h2 class="title">Login - Microservice Shop</h2>
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Tài khoản: </label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Mật khẩu: </label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Password, new { @type = "password", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Password)
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" value="Đăng nhập" class="btn btn-default"/>
+    </div>
+
+    <div class="form-group">
+        @Html.ValidationSummary(true)
+    </div>
+
+    <div class="">
+        @Html.Raw(values)
+    </div>
+}

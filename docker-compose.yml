@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  microservicedemo:
+    image: microservicedemo
+    build:
+      context: ./MicroserviceDemo
+      dockerfile: Dockerfile
+
+  order:
+    image: order
+    build:
+      context: ./Order
+      dockerfile: Dockerfile
+
+  apigatewaynetcore:
+    image: apigatewaynetcore
+    build:
+      context: ./APIGatewayNetCore
+      dockerfile: Dockerfile
+
+  price:
+    image: price
+    build:
+      context: ./Price
+      dockerfile: Dockerfile
+
+  payment:
+    image: payment
+    build:
+      context: ./Payment
+      dockerfile: Dockerfile

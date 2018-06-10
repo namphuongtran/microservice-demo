@@ -1,0 +1,71 @@
+﻿@using Framework.Entities.Organization
+@using Framework.Security
+@{
+    ViewBag.Title = "Gian hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<ProductCategory> listProductCategory = ViewBag.ResultData;
+    int countCart = SystemSession.ShopCart != null ? SystemSession.ShopCart.Count : 0;
+}
+
+<h2 class="title">Gian hàng</h2>
+
+@if (listProductCategory == null)
+{
+    <div class="row">
+        <div class="row-left">
+            <h4>Chức năng đang được hệ thống tạm dừng để bảo trì. Vui lòng quay lại sau!</h4>
+        </div>
+    </div>
+}
+else
+{
+    <div class="row">
+        <div class="row-left">
+            @Html.DropDownList("ProductCategoryId", new SelectList(listProductCategory, "ProductCategoryId", "Name"), "-Chọn mục sản phẩm-", new { @id = "listProductCategory" })
+        </div>
+        <div class="row-right">
+            <button type="button" class="btn btn-default btn-sm" id="history">
+                <span class="glyphicon glyphicon-list-alt"></span> Lịch sử thanh toán
+            </button>
+
+            <button type="button" class="btn btn-default btn-sm" id="shopcart">
+                <span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng (<span id="countCart">@countCart</span>)
+            </button>
+        </div>
+    </div>
+
+    <div id="ResultContent">
+    </div>
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/Personals/Shop.js"></script>
+    <script type="text/javascript">
+        var params = {
+            lblCountCart: '#countCart',
+            lblBuyed: '#buyed',
+
+            btnHistory: '#history',
+            btnRemove: '.btnRemove',
+            txtQuantity: '.txtQuantity',
+            btnShopCart:'#shopcart',
+            btnShopAdd: '.shopadd',
+            btnAdd: '#add',
+            ddlListProductCategory: '#listProductCategory',
+
+            addForm: '#formAdd',
+            btnPaging: '.btnPaging',
+
+            urlLoadContent: '@Url.Action("LoadContent", "Shop")',
+            urlAddShop: '@Url.Action("AddShop", "Shop")',
+            urlShopCart: '@Url.Action("ShopCart", "Shop")',
+            urlEditQuantity: '@Url.Action("EditQuantity", "Shop")',
+            urlRemoveItem: '@Url.Action("RemoveItem", "Shop")',
+            urlViewHistory: '@Url.Action("ViewHistory", "Shop")',
+        }
+
+        var itemShop = new pageJS.ItemShop();
+        itemShop.Initialize(params);
+    </script>
+}

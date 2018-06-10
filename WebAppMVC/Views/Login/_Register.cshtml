@@ -1,0 +1,100 @@
+﻿@model Framework.Entities.Systems.Account
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="title">Đăng ký tài khoản Microservice Shop</h2>
+
+@using (Html.BeginForm("Register", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Tài khoản (Email) *: </label>
+        </div>
+        <div class="form-group">
+            @if (Model == null || Model.AccountId == 0)
+            {
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+            }
+            else
+            {
+                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @disabled= "disabled" })
+                @Html.HiddenFor(x => x.Email)
+            }
+            
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Mật khẩu *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Password, new { @type = "password", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Password)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Nhập lại mật khẩu *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.RePassword, new { @type = "password", @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.RePassword)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Họ và họ đệm *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Firstname, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Firstname)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Tên *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.LastName)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Số ĐT *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Phone)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="form-control-left">
+            <label>Địa chỉ *:</label>
+        </div>
+        <div class="form-group">
+            @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.Address)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Hoàn thành" class="btn btn-default" />
+    </div>
+
+    <div class="form-group">
+        @Html.ValidationSummary(true)
+    </div>
+    @Html.HiddenFor(x => x.AccountId)
+}

@@ -1,0 +1,74 @@
+﻿@using Framework.Security
+@{
+    ViewBag.Title = "Tổ chức";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool isSession = SystemSession.CurrentAccount != null;
+    string organizationName = SystemSession.CurrentAccount != null ?SystemSession.CurrentAccount.OrganizationName : "";
+    int organizationId = SystemSession.CurrentAccount != null ? SystemSession.CurrentAccount.OrganizationId : 0;
+}
+
+@if (organizationId == -1)
+{
+    <h2 class="title">Quản lý tổ chức kinh doanh của bạn</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Chức năng đang được hệ thống tạm dừng để bảo trì. Vui lòng quay lại sau!</h4>
+        </div>
+    </div>
+}
+else if (string.IsNullOrEmpty(organizationName))
+{
+    <h2 class="title">Quản lý tổ chức kinh doanh của bạn</h2>
+
+        <div class="row">
+            @if (isSession)
+            {
+                <div class="col-md-4">
+                    <h2>Chưa đăng ký tổ chức</h2>
+                    <p>
+                        Để kinh doanh và quản lý sản phẩm của bạn tại Microservice Shop bạn cần tạo tổ chức cho riêng mình.
+                    </p>
+                    <p><a class="btn btn-default" href="/Organization/Add">Tạo tổ chức &raquo;</a></p>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-12">
+                    <h4>Bạn không có quyền thao tác chức năng này. Vui lòng @Html.ActionLink("Đăng nhập", "Index", "Login") vào hệ thống!</h4>
+                </div>
+            }
+        </div>
+}
+else
+{
+    <h2 class="title">Tên tổ chức: @organizationName</h2>
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Quản lý thông tin tổ chức</h2>
+                <p>
+                    Bạn có thể thực hiện sửa đổi các thông tin tổ chức kinh doanh của mình tại đây.
+                </p>
+                <p><a class="btn btn-default" href="/Organization/Edit">Sửa tổ chức &raquo;</a></p>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Sản phẩm kinh doanh</h2>
+                <p>
+                    Thêm mới, cập nhật, xóa sản phẩm kinh doanh cho tổ chức của bạn trên hệ thống.
+                </p>
+                <p><a class="btn btn-default" href="/Product/Index">Quản lý sản phẩm &raquo;</a></p>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Quản lý đơn hàng bán</h2>
+                <p>
+                    Xem danh sách các đơn hàng khách hàng mua sản phẩm bạn cung cấp.
+                </p>
+                <p><a class="btn btn-default" href="/MyOrder/Index">Xem đơn hàng &raquo;</a></p>
+            </div>
+        </div>
+}
+
+

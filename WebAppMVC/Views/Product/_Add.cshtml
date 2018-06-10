@@ -1,0 +1,72 @@
+﻿@model Framework.Entities.Organization.Product
+
+<div id="addNewForm">
+    @using (Ajax.BeginForm("Add", "Product",
+    new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "addNewForm",
+        OnSuccess = "itemProduct.CreatedSuccess",
+    }, new { @id = "formAdd" }))
+    {
+        <form role="form">
+            @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <div class="form-add-left">
+                    <label>Mã sản phẩm *: </label>
+                </div>
+                <div class="form-add-right">
+                    @Html.TextBoxFor(x => x.Code, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Code)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-add-left">
+                    <label>Tên sản phẩm *: </label>
+                </div>
+                <div class="form-add-right">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-add-left">
+                    <label>Đường dẫn ảnh *: </label>
+                </div>
+                <div class="form-add-right">
+                    @Html.TextBoxFor(x => x.UrlPicture, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.UrlPicture)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-add-left">
+                    <label>Mô tả sản phẩm : </label>
+                </div>
+                <div class="form-add-right">
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Description)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-add-left">
+                </div>
+                <div class="form-add-right">
+                    @Html.ValidationSummary(true)
+                </div>
+            </div>
+
+            @Html.HiddenFor(x => x.ProductId)
+            @Html.HiddenFor(x => x.ProductCategoryId)
+            @Html.HiddenFor(x => x.OrganizationId)
+        </form>
+    }
+</div>
+
+<script type="text/javascript">
+    reinitForm("#formAdd");
+</script>

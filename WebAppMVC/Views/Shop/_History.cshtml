@@ -1,0 +1,47 @@
+﻿@using Framework.Entities
+@using Framework.Security
+@model Framework.Common.DataPaging.GridModel<Framework.Entities.Payments.Payment>
+@{
+    int countItem = 0;
+}
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Stt</th>
+                <th class="text-center">Thời điểm thanh toán</th>
+                <th class="text-center">Mã đơn hàng</th>
+                <th class="text-right">Tổng tiền (VNĐ)</th>
+                @*<th class="text-center">Chi tiết</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @if (SystemSession.CurrentAccount == null)
+            {
+                <tr>
+                    <td colspan="4" class="text-center" id="nodata">Bạn cần @Html.ActionLink("đăng nhập","Index","Login") để xem lịch sử giao dịch của mình</td>
+                </tr>
+            }
+            else if (Model != null && Model.Data != null && Model.Data.Any())
+            {
+                foreach (var item in Model.Data)
+                {
+                    <tr>
+                        <td class="text-center">@(++countItem)</td>
+                        <td class="text-center">@(item.CreatedAtDate != null ? item.CreatedAtDate.Value.ToString("HH:mm dd/MM/yyyy") : "Không xác định")</td>
+                        <td class="text-center">@item.PaymentCode</td>
+                        <td class="text-right">@Framework.Common.Facache.Helpers.FormatNumber(item.TotalAmount, 0)</td>
+                        @*<td class="text-right">Xem</td>*@
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center" id="nodata">Chưa có giao dịch thanh toán nào được thực hiện!</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

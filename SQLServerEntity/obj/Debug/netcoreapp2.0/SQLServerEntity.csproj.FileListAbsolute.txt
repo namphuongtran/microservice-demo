@@ -1,0 +1,33 @@
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.csprojResolveAssemblyReference.cache
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.csproj.CoreCompileInputs.cache
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.AssemblyInfoInputs.cache
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.AssemblyInfo.cs
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.deps.json
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.dll
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.pdb
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\System.Data.SqlClient.dll
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\System.Data.SqlClient.xml
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.dll
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.pdb
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.deps.json
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.dll
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.pdb
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\System.Data.SqlClient.dll
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\System.Data.SqlClient.xml
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.csproj.CoreCompileInputs.cache
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.AssemblyInfoInputs.cache
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.AssemblyInfo.cs
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.dll
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.pdb
+D:\DOCUMENT\Microservice\My Project\MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.csprojResolveAssemblyReference.cache
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.deps.json
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.dll
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\SQLServerEntity.pdb
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\System.Data.SqlClient.dll
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\bin\Debug\netcoreapp2.0\System.Data.SqlClient.xml
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.csproj.CoreCompileInputs.cache
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.AssemblyInfoInputs.cache
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.AssemblyInfo.cs
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.dll
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.pdb
+E:\Microservice\20171114_MicroserviceDemo\MicroserviceDemo\SQLServerEntity\obj\Debug\netcoreapp2.0\SQLServerEntity.csprojResolveAssemblyReference.cache
